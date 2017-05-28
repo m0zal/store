@@ -1,0 +1,65 @@
+/*
+* This is a manifest file that includes stylesheets for spree_frontend
+ *= require spree/frontend/frontend_bootstrap
+ *= require_self
+*/
+
+
+
+@charset "UTF-8";
+
+* { box-sizing: border-box; }
+
+/* force scrollbar, prevents initial gap */
+html {
+  overflow-y: scroll; 
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* ---- grid ---- */
+
+.grid {
+  background: #dedede;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .element-item ---- */
+
+/* 5 columns, percentage width */
+.grid-item,
+.grid-sizer {
+  width: 33.3333%;
+}
+
+.grid-item {
+  float: left;
+  min-height: 150px;
+  background: #dedede;
+  border: 1px;
+}
+
+
+.grid-item:hover {
+  float: left;
+  min-height: 170px;
+  background: #060606;
+  border: 1px;
+}
+
+
+.grid-item--width2 { width: 40%; }
+.grid-item--height2 { height: 200px; }
+
+
+.thumbnail:hover {border:#dedede 1px solid;}
+
+#product_name {text-align: center; font-weight: 500;}

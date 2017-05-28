@@ -1,0 +1,95 @@
+<% @body_id = 'product-details' %>
+
+<% cache cache_key_for_product do %>
+  <div data-hook="product_show" class="row" itemscope itemtype="https://schema.org/Product">
+    <div class="col-md-4 col-sm-5" data-hook="product_left_part">
+      <div data-hook="product_left_part_wrap">
+        <div id="product-images" data-hook="product_images">
+          <div id="main-image" class="panel panel-default" data-hook>
+            <div class="panel-body text-center">
+              <%= product_image(@product, itemprop: "image") %>
+            </div>
+          </div>
+          <div id="thumbnails" data-hook>
+            <%= render partial: 'thumbnails' %>
+          </div>
+        </div>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default"  style="background: green; color:white">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          What included
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body"><div class="well" itemprop="description" data-hook="description">
+        <%= @product.what_included %></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Need to know
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body"><div class="well" itemprop="description" data-hook="description">
+        <%= @product.need_to_know %></div>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Additional information
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree" data-hook="product_description">
+      <div class="panel-body"> <div class="well" itemprop="description" data-hook="description">
+        <%= @product.additional_information %></div>
+      </div>
+    </div>
+  </div>
+</div>
+        <div data-hook="product_properties">
+          <%= render partial: 'properties' %>
+        </div>
+        <div data-hook="promotions">
+          <%= render partial: 'promotions' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-7" data-hook="product_right_part">
+      <div data-hook="product_right_part_wrap">
+        <div id="product-description" data-hook="product_description">
+          <h1 class="product-title" itemprop="name"><%= @product.name %></h1>
+
+          <div class="well" itemprop="description" data-hook="description">
+            <%= product_description(@product) %>
+            <%= @product.additional_information %>
+          </div>
+
+          <div id="cart-form" data-hook="cart_form">
+            <%= render partial: 'cart_form' %>
+          </div>
+        </div>
+
+        <div class="well" itemprop="tags" data-hook="tags"><h3>Product Tags</h3>
+          <%= @product.tag_list %></div>
+
+        <div id="taxon-crumbs" class=" five " data-hook="product_taxons">
+          <%= render partial: 'taxons' %>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
