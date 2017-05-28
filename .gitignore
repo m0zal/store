@@ -11,7 +11,6 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
-/private/*
 
 
 # Ignore all logfiles and tempfiles.
@@ -24,3 +23,8 @@
 /yarn-error.log
 
 .byebug_history
+
+
+/private/*
+/private/digitals/*
+/private/digitals/?/*
